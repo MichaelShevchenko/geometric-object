@@ -1,7 +1,7 @@
 import java.util.Random;
 
 public class RandomGenerator {
-    public static GeometricObject[] fillRandomly(int n) {
+    public GeometricObject[] fillRandomly(int n) {
         GeometricObject[] randomShapes = new GeometricObject[n];
         GeometricObject newObject = null;
         Random randomizer = new Random();

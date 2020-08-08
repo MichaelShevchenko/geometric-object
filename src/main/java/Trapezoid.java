@@ -1,20 +1,26 @@
 public class Trapezoid extends GeometricObject {
 
     private String shape = "трапеция";
+    public int shortBase;
+    public int longBase;
 
-    public Trapezoid(int area, String color) {
-        super(area, color);
+    public Trapezoid(int heightLength, Colour figuresColour, int shortBase, int longBase) {
+        super(heightLength, figuresColour);
+        this.shortBase = shortBase;
+        this.longBase = longBase;
     }
 
-    public double heightLength() {
-        // since we don't know the length of the sides, let's assume that we're dealing with
-        // idealized isosceles trapezoid, where b = 3*a and h = a;
-        double result = Math.sqrt(2) * Math.sqrt(getArea());
-        return result;
+    public double midLine() {
+        return (double) (shortBase + longBase) / 2;
+    }
+
+    @Override
+    public double calculateArea() {
+        return midLine() * getLength();
     }
 
     public void getAttributes() {
-        System.out.println(String.format("Фигура: %s, площадь: %d кв.ед., высота: %.2f ед., цвет: %s",
-                shape, getArea(), this.heightLength(), getColor()));
+        System.out.println(String.format("Фигура: %s, площадь: %.2f кв.ед., средняя линия: %.2f ед., цвет: %s",
+                shape, calculateArea(), midLine(), getFiguresColour()));
     }
 }

@@ -1,20 +1,22 @@
 public abstract class GeometricObject {
 
-    private String color;
-    private int area;
+    private Colour figuresColour;
+    private int length;
 
-    public GeometricObject(int area, String color) {
-        this.area = area;
-        this.color = color;
+    public GeometricObject(int length, Colour figuresColour) {
+        this.length = length;
+        this.figuresColour = figuresColour;
     }
 
-    public String getColor() {
-        return color;
-    }
-
-    public int getArea() {
-        return area;
-    }
+    public abstract double calculateArea();
 
     public abstract void getAttributes();
+
+    public int getLength() {
+        return length;
+    }
+
+    public String getFiguresColour() {
+        return figuresColour.getTranslation();
+    }
 }

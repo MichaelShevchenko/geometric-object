@@ -1,11 +1,13 @@
 public class Trapezoid extends GeometricObject {
 
-    private String shape = "трапеция";
-    public int shortBase;
-    public int longBase;
+    private static final String TRAPEZOID_SHAPE = "трапеция";
+    private int heightLength;
+    private int shortBase;
+    private int longBase;
 
-    public Trapezoid(int heightLength, Colour figuresColour, int shortBase, int longBase) {
-        super(heightLength, figuresColour);
+    public Trapezoid(Colour figuresColour, int heightLength, int shortBase, int longBase) {
+        super(figuresColour);
+        this.heightLength = heightLength;
         this.shortBase = shortBase;
         this.longBase = longBase;
     }
@@ -16,11 +18,11 @@ public class Trapezoid extends GeometricObject {
 
     @Override
     public double calculateArea() {
-        return midLine() * getLength();
+        return midLine() * heightLength;
     }
 
     public void getAttributes() {
         System.out.println(String.format("Фигура: %s, площадь: %.2f кв.ед., средняя линия: %.2f ед., цвет: %s",
-                shape, calculateArea(), midLine(), getFiguresColour()));
+                TRAPEZOID_SHAPE, calculateArea(), midLine(), getFiguresColour()));
     }
 }

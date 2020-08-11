@@ -1,22 +1,24 @@
 public class Circle extends GeometricObject {
 
-    private String shape = "круг";
+    private static final String CIRCLE_SHAPE = "круг";
+    private int radiusLength;
 
-    public Circle(int radiusLength, Colour figuresColour) {
-        super(radiusLength, figuresColour);
+    public Circle(Colour figuresColour, int radiusLength) {
+        super(figuresColour);
+        this.radiusLength = radiusLength;
     }
 
     @Override
     public double calculateArea() {
-        return Math.PI * getLength()* getLength();
+        return Math.PI * radiusLength * radiusLength;
     }
 
     public double circumference() {
-        return Math.PI * getLength();
+        return Math.PI * radiusLength;
     }
 
     public void getAttributes() {
         System.out.println(String.format("Фигура: %s, площадь: %.2f кв.ед., длина окружности: %.2f ед., цвет: %s",
-                shape, calculateArea(), circumference(), getFiguresColour()));
+                CIRCLE_SHAPE, calculateArea(), circumference(), getFiguresColour()));
     }
 }

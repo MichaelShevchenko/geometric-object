@@ -14,16 +14,16 @@ public class RandomGenerator {
             int randomLongBase = randomizer.nextInt(2 * n) + randomShortBase;
             switch(randomNumber) {
                 case 0:
-                    newObject = new Triangle(randomLength, colors[randomColor], randomShortBase);
+                    newObject = new Triangle(colors[randomColor], randomLength, randomShortBase);
                     break;
                 case 1:
-                    newObject = new Square(randomLength, colors[randomColor]);
+                    newObject = new Square(colors[randomColor], randomLength);
                     break;
                 case 2:
-                    newObject = new Circle(randomLength, colors[randomColor]);
+                    newObject = new Circle(colors[randomColor], randomLength);
                     break;
                 case 3:
-                    newObject = new Trapezoid(randomLength, colors[randomColor], randomShortBase, randomLongBase);
+                    newObject = new Trapezoid(colors[randomColor], randomLength, randomShortBase, randomLongBase);
                     break;
             }
             randomShapes[i] = newObject;
